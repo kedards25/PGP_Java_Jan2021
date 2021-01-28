@@ -1,0 +1,13 @@
+select * from students
+
+sp_help students
+
+alter table students
+alter column std_name varchar(50) 
+
+alter table students
+add addr varchar(100)
+
+update students
+set addr='VPE'
+where stdId=3

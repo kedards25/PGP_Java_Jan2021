@@ -1,0 +1,52 @@
+Restrict
+	specific or range of rows(tuples) from given relation(table)
+	e.g.
+		fetching records with id ranging from 12 to 34
+		from table having 50 records
+
+
+Project
+	specific columns(Attributes) from given relation(table)
+	e.g.
+		fetching only name and password from userProfile 		table
+
+Product(Cartesian Product)
+	each row of one table would be mapped with all the rows of 	another table
+	e.g.
+		each student from students table would appear for all 		the exams mentioned in exams table
+
+Union
+	columns(attributes) from either or both relations
+	e.g.
+		students who took admission and students who got 			batch schedule
+
+Intersect
+	common columns(attributes) from both relations
+	e.g.
+		students of two schools who play football on common 			turf
+
+Difference
+	columns existing in one relation but not in other
+	e.g.
+		students who took admission but  did not get batch 			schedule
+
+Join
+	common columns(attributes) from both relations based on 	condition(a common column)
+	e.g.
+		students and their results
+			only those students will get result who 			appeared for exam
+			students having ids in both tables(relations)
+
+Divide
+	all the rows from one relation and only matching rows from 	second relation
+	Products	Discouts		Discounted Prods	
+									
+1	Prd A	45	Prd B	5%		Prd B	
+2	Prd B	70	Prd C	7%		Prd C	
+3	Prd C	65							
+4	Prd D	52							
+
+
+
+
+	

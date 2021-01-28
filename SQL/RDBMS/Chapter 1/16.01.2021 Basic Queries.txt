@@ -1,0 +1,26 @@
+use AdventureWorks
+
+--select all columns
+select * 
+from HumanResources.Employee
+
+--select specific columns
+select EmployeeID,ManagerID,Title
+from HumanResources.Employee
+
+--performing arithmatic on columns
+select EmployeeID, VacationHours,VacationHours+3
+from HumanResources.Employee
+
+--Alias naming to columns
+select EmployeeID, VacationHours,VacationHours+3 as bonusHours
+from HumanResources.Employee
+
+select EmployeeID, VacationHours,VacationHours+3 bonusHours
+from HumanResources.Employee
+
+select EmployeeID, VacationHours,VacationHours+3 "bonus hours"
+from HumanResources.Employee
+
+select EmployeeID, VacationHours,VacationHours+3 bonus_hours
+from HumanResources.Employee

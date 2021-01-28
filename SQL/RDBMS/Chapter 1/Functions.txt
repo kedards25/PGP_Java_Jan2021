@@ -1,0 +1,109 @@
+--string functions
+select upper('morning')
+
+select lower('NIIT')
+
+select len('priyamvadha')
+
+--removes unneccessary white space from left side
+select ltrim('            niit')
+
+--removes unneccessary white space from right side
+select rtrim('niit			')
+
+select concat('Hello',' ','World')
+
+select 'Hello'+space(3)+'World'
+
+select reverse('Hello')
+
+select left('dock',2)
+
+select right('look',2)
+
+--ASCII=>American Standard Code for Information Interchange
+--values range from 0-255
+--A-Z=>65-90
+--a-z=>97-122
+select ASCII('k')
+
+select ASCII(' ')
+select char(32)
+
+select CHARINDEX('e','Kedar')
+
+--it will go for first match
+select CHARINDEX('o','look')
+
+--return any value between 0-4
+--depending upon match
+select DIFFERENCE('Hello','hell')
+
+select REPLACE('lock','oc','oo')
+
+select REPLICATE('Hello ',3)
+
+--index of given pattern
+select PATINDEX('%office%','boxoffice')
+
+--****Math Functions***--
+
+select PI();
+
+select floor(4.7)
+
+select ceiling(4.2)
+
+select power(35,4)
+
+--generates random value
+select rand()
+
+select abs(-85)
+
+--exponential value
+select exp(7.5)
+
+select log(5.5)
+
+select log10(5.5)
+
+--conversion of degrees to radians
+select radians(180)
+
+select ROUND(45.126,1)
+select ROUND(45.126,2)
+select ROUND(45.126,3)
+select ROUND(45.126,0)
+select ROUND(45.126,-1)
+select ROUND(345.126,-2)
+
+select sign(-85)
+select SQUARE(35)
+select sqrt(1225)
+
+--***Date Functions***--
+select getDate()
+
+select GETUTCDATE()
+
+--will give the date from current date
+select day(GETDATE())
+
+--will give the date from given date
+select day('2020-11-25')
+
+select MONTH('2020-11-25')
+
+select year('2020-11-25')
+
+select DATEADD(DD,5,GETDATE())
+
+--its 'date-diff' not 'dated-iff'
+--select datediff(date_param,'old_date','new_date')
+select datediff(YEAR,'1997-04-25',GETDATE())
+
+select DATEFROMPARTS(2005,04,12)
+
+select BusinessEntityID,HireDate,DATENAME(mm,HireDate)+','+convert(varchar,DATEPART(yyyy,HireDate)) 'Joining'
+from HumanResources.Employee

@@ -1,0 +1,197 @@
+create database mydatabase
+
+use mydatabase
+--primary key column accepts non-null unique values
+
+--create table mydatabase.dbo.demoTable
+--create table demoTable
+--(
+--	demoId int identity(100,1) constraint cpkDemoId primary key,
+--	demoName varchar(50),
+--	demoAddr varchar(100)
+--)
+
+
+--create table demoTable
+--(
+--	demoId int identity(100,1),
+--	demoName varchar(50),
+--	demoAddr varchar(100),
+--	constraint cpkDemoId primary key(demoId)
+--)
+
+--Primary key constraint
+Create table students
+(
+	--primary key has to be unique,not null
+	--no duplicate values
+	stdId int Constraint Con_pk_StdId primary Key , 
+	Std_name varchar(30),
+	EmailId varchar(30)
+)
+insert into students values(1,'raj','raj@gmail.com')--Ok
+insert into students values(1,'raju','raju@gmail.com')---PRIMARY KEY constraint 'PK_ID'. Cannot insert duplicate key 
+insert into students values(2,'raju','raju@gmail.com')--Ok
+insert into students values(null,'rajesh','rajesh@gmail.com')--Cannot insert the value NULL into column 'Std_Id'
+insert into students values(3,'rajk','rajk@gmail.com')--Ok
+
+
+--Unique key constraint
+--no duplicate values
+--only one null value is allowed
+Create table student1
+(
+	stdId int  , 
+	Std_name varchar(30) Constraint Con_stdname unique,
+	EmailId varchar(30)
+)
+
+insert into student1 values(1,'raj','raj@gmail.com')--Ok
+insert into student1 values(2,'raj','raju@gmail.com')---UNIQUE KEY constraint 'PK_ID'. Cannot insert duplicate key 
+insert into student1 values(2,'raju','raju@gmail.com')--Ok
+insert into student1 values(3,NULL,'rajesh@gmail.com')
+insert into student1 values(4,NULL,'rajesh@gmail.com')--Cannot insert the value NULL into column 'Std_Id'
+insert into student1 values(3,'rajk','rajk@gmail.com')--Ok
+
+SELECT * FROM student1
+
+
+--Foreign Key Constraint
+select *
+from students
+
+select *
+from ExamDetails
+--primary key of one table can be referred as foreign key in other table
+Create table ExamDetails
+(
+	stdId int constraint Con_FK foreign key references students(stdId),
+	eCode varchar(30),
+	result varchar(7)
+)
+select * from examDetails
+insert into ExamDetails values(1,'E001','Pass'),(1,'E002','Fail'),(2,'E001','Pass')
+insert into ExamDetails values(4,'E001','Pass')
+
+Select * from students
+--following query delets the data but retains the structure
+--can be clubbed with where clause to delete particular record
+--delete [from] demoTable
+
+--following query delets the data and the structure
+--cannot be clubbed with where clause
+--drop table demoTable
+
+--Check Constraint
+--check Constraint helps you to implement user defined constraint
+Create table student2
+(
+	Std_Id int , 
+	Std_name varchar(30) ,
+	EmailId varchar(30) Constraint Chk_EmailiD check(EmailId like '%.com')
+	--EmailId varchar(30) Constraint Chk_EmailiD check(EmailId like '%.com') not null
+	--stdAge int Constraint Chk_Age check(age between 5 and 20)
+	--QTR varchar(30) Constraint Chk_Qtr check(QTR in('Qtr1','Qtr2','Qtr3','Qtr4'))
+)
+insert into student2 values(1,'raj','raj@gmail.com')--OK
+insert into student2 values(2,'raju','rajC@gmai')--Error.Because .com is not in the Emaill Id
+insert into student2 values(3,'rajesh',null)--Null is allowed
+insert into student2 values(4,'rakesh',null)--Null is allowed
+
+select *
+from student2
+
+--disabling the constraint
+--alter table tableName
+alter table student2
+nocheck constraint Chk_EmailiD
+
+insert into student2 values(2,'raju','rajC@gmai')
+
+select *
+from student2
+
+--enabling the constraint
+--alter table tableName
+alter table student2
+check constraint Chk_EmailiD
+
+Create table student3
+(
+	Std_Id int , 
+	Std_name varchar(30) ,
+	EmailId varchar(30) Constraint Dft_EmailiD  Default 'someone@.gmail.com'
+)
+
+insert into student3(Std_Id,Std_name,EmailId) values(1,'raj','raj@gmail.com')--OK
+insert into student3(Std_Id,Std_name,EmailId) values(2,'raju',null)--OK
+insert into student3(Std_Id,Std_name) values(3,'rajesh')
+
+select *
+from student3
+
+
+create table demoAddress
+(
+	addressId int,
+	addrLocation geography
+)
+
+sp_help demoTable
+
+sp_helpdb mydatabase
+
+select * 
+from demoTable
+
+select * 
+from demoAddress/* cross Apply*/
+--cus is an alias name for customer table
+--caq is an alias name for second query
+SELECT CUS.TERRITORYID,cus.accountnumber,caq.addressID 
+from Sales.Customer cus 
+cross apply
+			(select * 
+			from sales.CustomerAddress ca 
+			where cus.CustomerID=CA.CustomerID 
+			)CAQ
+
+/* outer Apply*/
+select distinct(p.productId),p1.specialofferID,p1.salesOrderId,p1.orderQty,p1.unitPrice 
+from  Sales.SpecialOfferProduct p 
+outer Apply 
+			(select * 
+			from Sales.SalesOrderDetail sd 
+			WHERE p.ProductID=sd.ProductID
+			)p1 
+			order by p.ProductID
+
+SELECT CUS.TERRITORYID,cus.accountnumber,caq.addressID 
+from Sales.Customer cus 
+outer apply
+			(select * 
+			from sales.CustomerAddress ca 
+			where cus.CustomerID=CA.CustomerID )CAQ 
+			order by AddressID desc
+
+/*union operator*/
+select HireDate 
+from HumanResources.Employee 
+union
+select RateChangeDate 
+from HumanResources.EmployeePayHistory
+
+/*intersect operator*/
+select HireDate 
+from HumanResources.Employee 
+intersect
+select RateChangeDate 
+from HumanResources.EmployeePayHistory
+
+/* except operator*/
+--row which is there in first table but not in second 
+select HireDate 
+from HumanResources.Employee 
+except
+select RateChangeDate 
+from HumanResources.EmployeePayHistory

@@ -1,0 +1,52 @@
+
+select * 
+from [dbo].[Demo]
+
+select Name,course,count(Addrss) as cnt 
+from Demo  
+group by rollup(name,course)
+
+select Name,course,count(Addrss) as cnt 
+from Demo  
+group by cube(name,course)
+
+
+select OrganizationLevel,jobTitle,avg(vacationHours) 
+from HumanResources.employee 
+group by rollup(OrganizationLevel,jobtitle)
+
+select OrganizationLevel,jobTitle,avg(vacationHours) 
+from HumanResources.employee 
+group by cube(OrganizationLevel,jobtitle)
+
+select * from HumanResources.Employee 
+
+select *
+from Purchasing.PurchaseOrderHeader
+ 
+select vendorId,[251] as Emp1,[253] as Emp2,[254] as Emp3,
+[258] as Emp4,[261] as Emp5 from 
+(Select purchaseOrderID,employeeId,vendorID from Purchasing.PurchaseOrderHeader)p
+pivot
+(count(purchaseOrderId) for employeeId in([251],[253],[254],[258],[261])) as pvt
+order by vendorID
+
+--unpivot
+create table records
+(
+	ApplicantName varchar(30),
+	Matriculation char(5),
+	HigherSecondary char(5),
+	Graduation char(5)
+)
+insert into records values('Rinki','A','A','B'),('Shruti','B','A','A'),('Vikrant','A','A','A')
+select * from records
+
+select applicantName,Qualification,Grade from
+(
+select ApplicantName,Matriculation,HigherSecondary,Graduation from records
+)q
+unpivot
+(
+grade for qualification in(Matriculation,HigherSecondary,Graduation)
+)as unPivotTable

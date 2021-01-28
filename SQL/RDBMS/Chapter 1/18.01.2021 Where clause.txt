@@ -1,0 +1,77 @@
+use AdventureWorks2012
+
+select * 
+from HumanResources.Employee
+
+select *
+from HumanResources.Department
+
+select * 
+from HumanResources.EmployeePayHistory
+
+select BusinessEntityID,LoginID,JobTitle 
+from HumanResources.Employee
+
+--alias names to columns
+select 'Department number'=DepartmentID,'Department Name'=Name
+from HumanResources.Department
+
+select DepartmentID 'Department number',Name 'Department Name'
+from HumanResources.Department
+
+select DepartmentID as 'Department number',Name as 'Department Name'
+from HumanResources.Department
+
+
+--adding additional column
+select BusinessEntityID,'Description:',JobTitle 
+from HumanResources.Employee
+
+--concatenating the varchar columns
+select LoginID+' works as '+JobTitle 
+from HumanResources.Employee
+
+--performing arithmatic
+select BusinessEntityID,Rate,per_day_rate=8*rate
+from HumanResources.EmployeePayHistory
+
+--Retrieving specific rows using where clause
+select *
+from HumanResources.Department
+where GroupName='Manufacturing'
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours<5
+
+select *
+from HumanResources.Department
+where GroupName='Manufacturing'
+and
+name='production'
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours=5
+or VacationHours=3
+
+select *
+from HumanResources.Department
+where NOT GroupName='Quality Assurance'
+
+--above query can be written as
+select *
+from HumanResources.Department
+where GroupName !='Quality Assurance'
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours between 3 and 5
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours not between 3 and 5
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where JobTitle in('Recruiter','Stocker','buyer')
