@@ -1,0 +1,31 @@
+Loops
+	Loops can be executed using an iterator
+	iterator has to be provided with 
+		an initial value
+		condition
+		incr/decr
+int i=0	//initial value
+while(i<=10)	//condition
+	{
+		//code to perform
+		i++;	//increment
+	}
+
+
+do..while
+//code will execute atleast once irrespective of condition
+int i=70;
+do
+{
+	S.O.P(i);
+	//code to perform
+	i++;
+}while(i<=10);
+
+for
+for(int i=0;i<=10;i++)
+{
+	//code to perform
+}
+
+

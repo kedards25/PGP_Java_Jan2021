@@ -1,0 +1,115 @@
+Conditional Constructs
+	helps in executing the block of code based on result of the 		condition
+
+if
+simple if
+//syntax
+if(condition)
+{
+	//code to be executed if the condition
+	//evaluates to true
+}
+
+simple if...else
+//syntax
+if(condition)
+{
+	//code to be executed if the condition
+	//evaluates to true
+}
+else
+{
+	//code to be executed if the condition
+	//evaluates to false
+}
+
+nested if
+if(outer condition)
+{
+	//compiler will enter in this block 
+	//when outer condition is true
+	if(inner condition)
+	{
+		//code to be executed if both the condition
+		//evaluates to true
+	}
+	else
+	{
+		//code to be executed when outer condition is true 		//but inner condition evaluates to false
+	}
+}
+else
+{
+	//code to be executed when outer condition
+	//evaluates to false
+}
+
+
+nested else..if
+else..if ladder
+if(first condition)
+{
+	//compiler will enter in this block 
+	//when first condition is true
+	
+}
+else
+{
+	//compiler will enter in this block 
+	//when first condition is false
+	if(second condition)
+	{
+		//code to be executed if second condition
+		//evaluates to true
+	}
+	else
+	{
+		//compiler will enter in this block 
+		//when second condition is true
+		if(Third condition)
+		{
+			//code to be executed if third condition
+			//evaluates to true
+		}
+		else
+		{
+			//to be executed if none of the conditions
+			//are true
+		}
+	}
+
+
+}
+
+switch..case
+int val=2;
+switch(val)
+{
+	case 1:
+		//code to perform if case 1 matches
+		break;
+
+	case 2:
+		//code to perform if case 2 matches
+		break;
+
+	case 3:
+		//code to perform if case 3 matches
+		break;
+
+	case 4:
+		//code to perform if case 4 matches
+		break;
+
+	default:
+		//code to execute if none of the case matches
+}
+
+
+
+
+
+
+
+
+

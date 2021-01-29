@@ -1,0 +1,92 @@
+operators
+	operator operates on variables
+	variables are called as operands in terms of operators
+
+	a+b
+		operands	a,b
+		operator	+
+
+Assignment
+	a=5;	assignment takes place from right to left
+	a=b;	value of b will be assigned to a
+
+
+Arithmatic 
+	+,-,/,*,%
+	
+	%	gives the remainder after the division
+
+Arithmatic Assignment 
+	a=5
+	+=	a+=5	a=a+5	a=10
+	-=	a-=5	a=a-5	a=5
+	*=	a*=5	a=a*5	a=25
+	/=	a/=5	a=a/5	a=5
+	%=	a%=5	a=a/5	a=0
+
+Comparison
+	<,>,<=,>=,==,!=
+	
+	a=7
+	a!=8	true	
+	a==8	false
+	comparison operator gives us boolean answer
+
+Logical Operators
+	helps to evaluate more than one comparisons
+
+	AND(&&)
+	C1	C2	Res
+	T	T	T
+	T	F	F
+	F	T	F
+	F	F	F
+
+	OR(||)
+	C1 	C2	Res
+	T	T	T
+	T	F	T
+	F	T
+	F	F	F
+
+	NOT(!)
+	C1	Res
+	T	F
+	F	T
+
+	x=7
+	!(x==5)	==>!(false)->True
+	!(x!=5)	==>!(true) ->false
+
+unary operators
+	operators which operate on single operands
+
+a=5
+a++	a=a+1	a=6
+a--	a=a-1	a=5
+
+x=7 y=8
+
+1)	Post increment
+	x=y++
+	x=8	y=9
+
+2)	Pre increment
+	x=7 y=8
+	x=++y
+	++y=>9	x=y=>9
+	x=9	y=9
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
