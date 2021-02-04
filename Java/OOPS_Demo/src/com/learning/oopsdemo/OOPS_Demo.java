@@ -24,6 +24,11 @@ public class OOPS_Demo {
 		ans=num1+num2;
 	}
 	
+	void subtractNums()
+	{
+		ans=num1-num2;
+	}
+	
 	//function to display the result
 	void displayAns()
 	{
@@ -44,7 +49,11 @@ public class OOPS_Demo {
 		oopsDemo.acceptNums();
 		oopsDemo.addNums();
 		oopsDemo.displayAns();
-		
+
+		//using feature of re-usability
+		oopsDemo.acceptNums();
+		oopsDemo.subtractNums();
+		oopsDemo.displayAns();
 
 	}
 

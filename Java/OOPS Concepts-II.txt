@@ -1,4 +1,11 @@
 OOPS
+
+Benefits of OOPS
+	Realistic Modelling
+	Re-usability
+	modularity
+	information hiding
+
 any language that follows OOPS must possess following characteristics
 
 Abstraction
