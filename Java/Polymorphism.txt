@@ -1,0 +1,15 @@
+Polymorphism
+	Two types
+		static
+		dynamic
+
+static polymorphism
+	method overloading
+	a method is said to be overloaded in following cases
+	
+	void subtract(int num1,int num2)	//ref function
+	void subtract(int num,float val)	//overloading because type of parameters are diff
+	void subtract(int num2,int num1)	//overloading because sequence of parameters is diff
+	void subtract(int num1,int num2,int num3)//overloading because number of parameters is diff
+	int subtract(int num1,int num2)		//no-return type does not matter in case of polymorphism
+	void subtract(int val1,int val2)	//no-variable names do not matter
