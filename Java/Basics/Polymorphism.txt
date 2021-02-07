@@ -5,7 +5,10 @@ Polymorphism
 
 static polymorphism
 	method overloading
+	takes place in single class
 	a method is said to be overloaded in following cases
+
+	*
 	
 	void subtract(int num1,int num2)	//ref function
 	void subtract(int num,float val)	//overloading because type of parameters are diff
@@ -13,3 +16,12 @@ static polymorphism
 	void subtract(int num1,int num2,int num3)//overloading because number of parameters is diff
 	int subtract(int num1,int num2)		//no-return type does not matter in case of polymorphism
 	void subtract(int val1,int val2)	//no-variable names do not matter
+
+Dynamic polymorphism
+	Method overidding
+	take place with help of inheritance
+	while overridding a method we need to make sure that
+	method signature of method from parent class and 
+	that of child class has to be same
+	method signature:
+	access_specifier [access_modifier] return_type <method_name>([parameter_list])

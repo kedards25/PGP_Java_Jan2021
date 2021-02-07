@@ -1,0 +1,47 @@
+CodeToConnect connect;
+try
+{
+connect=new CodeToConnect("File_Path");
+connect.open();
+}
+catch(FileNotFound |IllegalAccessException e)
+{
+
+}
+finally
+{
+	try
+	{
+		connect.close()
+	}
+	catch()
+	{
+		
+	}
+}
+
+try with resources
+
+//it helps to open and close the connection by iteself
+//thereby eliminating the need of lengthy finally block
+//multiple resources should be separated using ';'
+//if it is connecting to more than one resources at a time
+//then the resources would be closed in the reverse of opening
+//closing of open resources will take place with help of 
+//AutoClosable interface(in the background)
+try(CodeToConnect connect=new CodeToConnect("File_Path");CodeToConnect connect2=new CodeToConnect("File_Path2"))
+{
+
+}
+catch()
+{
+
+}
+
+
+
+
+
+
+
+

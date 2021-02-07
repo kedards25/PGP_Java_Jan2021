@@ -1,0 +1,44 @@
+package com.learning.proj_name
+
+class <ClassName>
+{
+	//variable declaration
+	access_specifier [access_modifier] data_type <variable_name>[=value];
+	//int val;
+
+	//if we do not provide construct
+	//then call to default constructor is given
+	//constructors can be parameterized or non-parameterized
+	<ClassName>()
+	{
+		
+	}
+
+	<ClassName>(data_type <param_name>)
+	{
+		//if no variable is declared in the class
+		//then parameter would be accessible within constructor only
+		//whereas if variable is declared in class 
+		//then parameter value can be assigned to class variable\
+		<variable_name>=<param_name>
+	}
+
+	//in order to operate on the variables 
+	//we should declare methods
+	access_specifier [access_modifier] return_type <method_name>([parameter_list])
+	{
+		
+	}
+
+
+
+	public static void main(String[] args)
+	{	
+		//Creating object of the class
+		<ClassName>  <className>=new <ClassName>();
+		<ClassName>  <className>2=new <ClassName>(<param_val>);
+		
+		//accessing method from the object
+		<className>.<method_name>([param_values]);
+	}
+}
