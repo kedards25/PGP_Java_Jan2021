@@ -1,0 +1,61 @@
+HTML5
+
+Introduction to WEB
+===================
+
+HTML=>Hyper Text Markup Language
+	
+	Hyper Text is the form of text that is carried over internet/network
+	
+	Markup Language is the language which is represented using '<>' these are 
+	called as tags
+	
+	HTML,XML,XHTML
+
+	it is used to DESIGN the web page,we cannot DEVELOP a web page using HTML5
+
+Internet=>Interconnected network of computers across the globe
+
+www=>world wide web->it refers to information scattered over 
+		     the internet but inter-connected
+
+webpage=>is a page having information over the topic to be displayed 
+	 on browser using internet
+
+
+Website=>Collection of web pages would be called as a website
+
+Hosting is buying a digital space on the servers like GoDaddy,Hostgator,BigRocks
+	to host/store the website which is developed
+
+Domain is the name given to the website 
+
+Server helps you to host your website by letting you purchase from their plans
+
+Intranet=>network within an organisation(Local Network)
+
+Types of webpages
+		static
+			not-interactive
+				wikipedia
+				blogs
+
+		dynamic
+			interactive
+				instagram
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

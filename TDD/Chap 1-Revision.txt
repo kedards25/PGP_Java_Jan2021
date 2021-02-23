@@ -1,0 +1,47 @@
+Test Driven Development
+	Develop our code using testing mechanism
+	We would start designing the application/integrate our logic 	with design only after ensuring that logic is working 100%
+	Through TDD we can get the structure of the modules and their 	inter-relationships
+
+Types of Testing
+	Black box testing
+		code is not exposed to tester
+		allows to test application as a whole
+
+	White box testing
+		code is exposed to tester
+		allows to test application in units
+
+
+Unit Testing
+	Testing each unit separately
+
+Integration Testing
+	Testing each module separately
+	one module will consist of many units
+
+System Testing
+	Testing the application as a system
+	Application would consist of many modules
+
+Regression Testing
+	Testing the code after updation
+
+Acceptance Testing
+	Testing the application on client's computer and letting the 		client accept the application
+
+Performance Testing
+	working speed,response time,load on the computer,memory 		occupancy
+
+To implement testing java provides us Junit
+	
+	Test
+
+	Test case
+	
+	Test Runner
+
+	Test suite
+
+	Test Result
+	

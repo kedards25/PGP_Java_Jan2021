@@ -1,0 +1,8 @@
+To make our project portable we require maven based project
+
+	Maven is a tool that provides us the required jar files which 	are known as dependencies
+	To implement maven in our project,we need to configure 	pom.xml=>Project Object Model
+	visit mvnrepository.com and copy the required dependency 	configuration
+	when we share our project with others over mail/any other 		resources,the other person has to right click on the project 	and update maven
+	Maven will check for dependencies configured in pom.xml and 
+	download the dependencies online

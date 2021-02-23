@@ -1,0 +1,50 @@
+Two types of editors
+	text
+		we can create/edit text
+		it allows you to develop the text by writing everything from scratch
+		it may provide you 'intellisense' to ease
+
+	graphic
+		it allows you to use drag-drop feature
+
+Types of tags
+	tags with body
+		<> </>
+		<p>Sample Text</p>
+
+	tags with body and with attributes
+		attributes are written using key-value pair
+		<p id="para"></p>
+
+	tags without body
+		</>		
+		<hr/>
+
+	tags without body with attributes
+		<img src=""/>
+
+	html is not case-sensitive
+
+Fundamental tags of HTML page
+
+	Doctype	====>specifies the version of HTML we are using
+	html	====>Root/container tag for all the tags within web page
+	head	====>content that will support the tags 
+	body	====>consists of actual tags which are displayed on browser
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

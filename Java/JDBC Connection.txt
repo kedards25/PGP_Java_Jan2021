@@ -1,0 +1,46 @@
+JDBC Java Database Connectivity
+				Ticket+Passport
+India<-------------------Flight----------------------->Dubai
+							Translator
+							sentence
+India<--------------------ship<-------------------------Demand
+INR
+
+
+
+
+
+
+				username+password
+Java<---------------------URL------------------------->SQL
+							DriverManager
+							Statement
+Java<----------------------ResultSet<--------------------Query
+Java compatible types							
+
+
+Query and Corresponding Java Methods
+
+select 			ResultSet executeQuery()
+insert			int executeUpdate()
+update			int executeUpdate()
+delete			int executeUpdate()
+
+to perform JDBC operations
+ConnectDB==>shared in all the following classes
+Select	==>SelectQuery
+insert	==>insertQuery
+		use PreparedStatement instead of Statement
+update	==>updateQuery
+		use PreparedStatement instead of Statement
+delete	==>deleteQuery
+		use PreparedStatement instead of Statement
+
+
+
+
+
+
+
+
+
