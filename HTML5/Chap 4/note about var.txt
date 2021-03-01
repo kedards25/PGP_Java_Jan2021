@@ -1,0 +1,7 @@
+var=>variable data type
+
+the type of value assigned to variable would be the data type assigned to var.
+
+var name=5.5
+
+as var does not have specific data type it is mandate to assign value to it
