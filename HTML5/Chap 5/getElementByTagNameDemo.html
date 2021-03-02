@@ -1,0 +1,20 @@
+<html>
+	<body>
+		<p>Good Morning</p>
+		<p>Fresh Morning</p>
+		<h1>Fresh Morning</h1>
+		<input type="button" value="click" onclick="changeText()"/>
+		<script>
+			function changeText()
+			{
+				
+				var pTags=document.getElementsByTagName("p");
+				for(var i=0;i<pTags.length;i++)
+				{
+					pTags[i].innerHTML="Welcome to javascript";
+				}
+			}
+		</script>
+
+	</body>
+</html>

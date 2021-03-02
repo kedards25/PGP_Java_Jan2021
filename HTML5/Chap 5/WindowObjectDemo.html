@@ -1,0 +1,34 @@
+<html>
+	<body>
+		<iframe name="frame1" src="https://www.google.com/" style="width:200px;height:150px"></iframe>
+		<iframe name="frame2" src="https://www.google.com/" style="width:200px;height:150px"></iframe>
+		<iframe name="frame3" src="https://www.google.com/" style="width:200px;height:150px"></iframe>
+		<br/><br/>
+		<button onclick="openWindow()">Open Window</button>
+		<button onclick="clear()">clear timer</button>
+		<script>
+			window.document.write("<br/>No of frames: "+frames.length);
+			for(var i=0;i<frames.length;i++)
+			{
+				window.document.write("<br/>Name of frame: "+frames[i].name);
+			}
+			function openWindow()
+				{
+					window.open("https://www.google.com/","Google Window","Height=400,Width:500",false);
+					window.alert(window.parent.location);
+					//hre clear() is called as callBack function
+					//as it gets executed after given time interval
+					
+				}
+			timer=setTimeout("closeWindow()",3000);
+			function closeWindow()
+			{
+				close();
+			}
+			function clear()
+			{
+				clearTimeout(timer);
+			}
+		</script>
+	</body>
+</html>

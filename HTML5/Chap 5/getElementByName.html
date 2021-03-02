@@ -1,0 +1,19 @@
+<html>
+	<body>
+		<p>Good Morning</p>
+		<p name="test">Fresh Morning</p>
+		<h1 name="test">Let's learn</h1>
+		<input type="button" value="click" onclick="changeText()"/>
+		<script type="text/javascript" rel="javascript">
+			function changeText()
+			{
+				var pTest=document.getElementsByName("test");
+				for(var i=0;i<pTest.length;i++)
+				{
+					pTest[i].innerHTML="Welcome to javascript";
+				}
+			}
+		</script>
+
+	</body>
+</html>

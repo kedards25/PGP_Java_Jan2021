@@ -1,0 +1,15 @@
+<html>
+	<body>
+		<form action="order.html" name="misc">
+			<input type="number" min="0" max="50" placeholder="Quantity" ><br/>
+			<label>0</label><input type="range" name="rangeVal" min="1" max="100" step="2" value="8"/><label>100	</label><br/>
+			<input type="image" onclick="showVal(this.form)" src="submitBtn.png" style="width:100px;height:auto"/>
+		</form>
+		<script type="text/javascript">
+			function showVal(form)
+			{
+				alert(form.rangeVal.value);
+			}
+		</script>
+	</body>
+</html>

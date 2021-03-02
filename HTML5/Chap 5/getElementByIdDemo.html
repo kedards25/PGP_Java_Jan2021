@@ -1,0 +1,17 @@
+<html>
+	<body>
+		<p id="para">Good Morning</p>
+		<input type="submit" id="btn" value="click" onclick="changeText()"/>
+		<script>
+			function changeText()
+			{
+			//for tags with body we shall use innerHTML
+				//document.getElementById("para").innerHTML="Welcome to javascript";
+
+			//for tags without body we shall use value or src
+				document.getElementById("btn").value="clicked";
+			}
+		</script>
+
+	</body>
+</html>
