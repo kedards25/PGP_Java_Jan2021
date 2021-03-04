@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Jquery Visual Effects</title>
+	</head>
+	<body>
+		<div style="height:200px;width:300px;background:#f5f5f5">Click the button to make this disappear</div>
+		<br/><br/>
+		<button>Click Here</button>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" rel="javascript"></script>
+		<script>
+			$('document').ready(function(){
+				$('button').click(function(){
+					//$('div').hide();
+					//$('div').show();
+					//$('div').toggle();
+
+					//$('div').fadeOut();
+					//$('div').fadeIn();
+					//$('div').fadeToggle("fast");
+					//$('div').fadeToggle(3000);
+					//$('div').fadeTo(3000,0.5);			
+
+					//$('div').slideUp();
+					//$('div').slideDown();
+					//$('div').slideToggle();			
+					
+					$('div').animate({
+						center:'250px',
+						opacity:'0.5',
+						height:'300px',
+						width:'400px'
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

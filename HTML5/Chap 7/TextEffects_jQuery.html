@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>Jquery Visual Effects</title>
+	</head>
+	<body>
+		<p id="p1">Good Morning</p>
+		<p id="p2">Welcome to HTML5</p>
+		<p id="p3">HTML5 is fun</p>
+		<input type="text" id="txtVal" />
+		<img src="flowers.jpg"/>
+		<br/>
+		<div></div>
+		<br/>
+		<button>Click Here</button>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" rel="javascript"></script>
+		<script>
+			$('document').ready(function(){
+				$('button').click(function(){
+					//var txt=$('p').html();
+					//$('div').html(txt);
+
+					//var txt=$('p').text();
+					//$('div').text(txt);
+
+																//var txt=$('#txtVal').val();
+					//$('div').text("Hello "+txt);
+
+					$('img').attr('height','200px');
+					
+				});
+			});
+		</script>
+	</body>
+</html>

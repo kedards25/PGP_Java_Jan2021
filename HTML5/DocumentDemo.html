@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>	
+			Document Demo
+		</title>
+	</head>
+	<body>
+		<input type="text" id="txtUser" placeholder="Enter your name">
+		<input type="submit" value="enter" onclick="greetUser()"/>
+		<div id="dvGreet"></div>
+		<script type="text/javascript" rel="javascript">
+			function greetUser()
+			{
+				var val=document.getElementById("txtUser").value;
+				var dv=document.getElementById("dvGreet");
+				dv.innerHTML="Good Morning "+val;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>	
+			Jquery Demo
+		</title>
+
+	</head>
+	<body>
+
+		<input type="text" id="txtUser" placeholder="Enter your name"/>
+		<input type="submit" value="enter" id="btnSubmit"/>
+		<div id="dvGreet"></div>
+
+		<!-- url of any online file is called as CDN -->
+		<!-- Content Delivery (over) Network -->
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" rel="javascript"></script>
+		<script type="text/javascript" rel="javascript">
+			$('document').ready(function(){
+				$('#btnSubmit').click(function(){
+					var txtVal=$('#txtUser').val();
+					$('#dvGreet').html("Welcome "+txtVal);
+				});
+			});
+		</script>
+	</body>
+</html>
