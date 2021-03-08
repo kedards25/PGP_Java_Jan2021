@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Canvas Demo</title>
+	</head>
+	<body>
+		<!-- Canvas tag is used to add graphics to the web page-->
+		<!-- Default height and width of canvas tag is 150 and 300 respectively -->
+		<canvas id="cnvs" style="border:1px solid blue">
+			Your browser does not support canvas tag
+		</canvas>
+		<script type="text/javascript">
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+			/*ctx.strokeStyle="red";
+			ctx.strokeRect(20,20,110,110);
+			ctx.fillStyle="yellow";
+			ctx.fillRect(20,20,110,110);*/
+			ctx.rect(20,20,110,110);
+			//ctx.stroke();
+			//ctx.fill();
+		</script>
+	</body>
+</html>

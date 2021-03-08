@@ -1,0 +1,18 @@
+<html>
+	<body>
+		<!-- default height and width of canvas is 150 and 300 respectively -->
+		<canvas id="cnvs" style="border:1px solid blue" width="400" height="300">
+			Browser does not support canvas
+		</canvas>
+		<script>
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+			var img=new Image();
+			img.src="asterisk.png";
+			var patrn=ctx.createPattern(img,"repeat-x");
+			ctx.fillStyle=patrn;
+			ctx.rect(20,20,300,150);		
+			ctx.fill();
+		</script>
+	</body>
+</html>

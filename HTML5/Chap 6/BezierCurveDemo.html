@@ -1,0 +1,16 @@
+<html>
+	<body>
+		<canvas id="cnvs" style="border:1px solid blue" height="200px" width="300px">
+			Canvas not supported
+		</canvas>
+		<script>
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+			//moveTo() method helps you to move origin to starting point of line
+			ctx.moveTo(250,20);//starting point
+			//ctx.bezierCurveTo((co-ords of first control point),(co-ords of second control //point),(co-ords of ending point));
+			ctx.bezierCurveTo(100,10,100,150,200,150);
+			ctx.stroke();
+		</script>
+	</body>
+</html>

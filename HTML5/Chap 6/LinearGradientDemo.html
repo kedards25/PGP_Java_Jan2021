@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Canvas Demo</title>
+	</head>
+	<body>
+		<!-- Canvas tag is used to add graphics to the web page-->
+		<!-- Default height and width of canvas tag is 150 and 300 respectively -->
+		<canvas id="cnvs" style="border:1px solid blue" height="300" width="500">
+			Your browser does not support canvas tag
+		</canvas>
+		<script type="text/javascript">
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+
+			var grad=ctx.createLinearGradient(0,0,150,0);
+			grad.addColorStop(0,"purple");
+			grad.addColorStop(0.25,"blue");
+			grad.addColorStop(0.5,"yellow");
+			grad.addColorStop(1,"red");
+
+
+			ctx.fillStyle=grad;
+			ctx.shadowColor="yellow";
+			ctx.fillRect(20,20,180,180);
+
+			
+			
+		</script>
+	</body>
+</html>

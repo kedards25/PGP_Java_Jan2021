@@ -1,0 +1,21 @@
+<html>
+	<body>
+		<!-- default height and width of canvas is 150 and 300 respectively -->
+		<canvas id="cnvs" style="border:1px solid blue" width="400" height="300">
+			Browser does not support canvas
+		</canvas>
+		<script>
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+			
+			ctx.beginPath();
+			ctx.moveTo(30,30);
+			ctx.lineTo(150,70);
+			ctx.lineTo(30,210);
+			ctx.closePath();			
+			ctx.strokeStyle="red";
+			ctx.stroke();
+
+		</script>
+	</body>
+</html>

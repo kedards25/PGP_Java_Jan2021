@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Window Open Demo</title>
+	</head>
+	<body>
+		<button onclick="showWindow()">Show Popup</button>
+		<button onclick="clear()">clear timer</button>
+		<script>
+			function showWindow()
+			{
+				window.open('order.html','newWindow','height=300,width=400',false);
+				//window.alert(window.parent.location);
+			}
+			
+			timer=setTimeout("closeWindow()",3000);
+
+			function closeWindow()
+			{
+				alert('close window called');
+				close();
+			}
+
+			function clear()
+			{
+				clearTimeout(timer);
+			}
+			
+		</script>
+	</body>
+</html>
