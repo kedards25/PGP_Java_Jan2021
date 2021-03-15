@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Scale Demo</title>
+	</head>
+	<body>
+		<canvas id="cnvs" style="border:1px solid blue" width="500" height="400">
+			your browser does not support canvas
+		</canvas>
+		<script>
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+			ctx.fillStyle="Red";
+			ctx.fillRect(10,10,100,100);
+
+			//translating origin from 0,0 to 50,25
+			ctx.translate(50,25);
+			ctx.scale(2,2);
+
+			ctx.fillStyle="blue";
+			ctx.fillRect(10,10,100,100);
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+Any application can be divided into
+	Design	=> Presentation Layer
+	Logic	=> Bussiness Layer
+	DB	=> Database Layer
+
+	based on where these layers reside,we can have software architecture
+
+
+One-Tier/Single Tier Architecture
+
+	All three layers would be on same computer
+
+	Pro's
+	No need of multiple computers and hence no need of network
+	Low maintainance cost
+	ease of access
+
+	Con's
+	slow processing
+	data loss in case of crash(No-backup facility available)
+	cannot be accessed over the network(no remote access)
+	not-Portable
+	single user oriented
+
+Two Tier Architecture
+	PL+BL		DL
+	Client		Server architecture
+	Fat Client	Thin Server
+
+
+	PL		BL+DL
+	Thin client	Fat Server
+
+
+	Pro's
+	Multi-user oriented
+	Remote access possible
+	Backup facility available
+	Fast Processing
+	storage can be expanded as needed
+
+	Con's
+	More maintainance cost
+	Network is compulsary
+	Update/Upgrade has to be done on each client separately/individually
+
+Three Tier
+	PL		BL		DL
+
+	Pro's
+	update is released OTA => Over The Air
+
+	Con's
+	Cost
+	For each request,client takes round trip from the server
+	Whenever there is round trip from the server,page refreshes
+
+	
+N-tier Architecture
+	PL		BL		DL
+		AJAX		Disc
+				env
+
+	AJAX allows to achieve partial page reloading/refreshing
+	     helps sending part of the web page to be processed to the server
+	     Async Javascript And XML
+		Async=>it is not in sync with page hence we can interact with rest of 			the page while the particular part is being updated
+		
+		Javascript=>Handles interaction at client side
+
+		XML=>communicates data with server
+	
+
+	
+
+	

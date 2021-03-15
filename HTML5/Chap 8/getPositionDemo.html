@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Geolocation Demo</title>
+	</head>
+	<body onload="getLocation()">
+
+		<script>
+			function getLocation()
+			{
+				if(navigator.geolocation)
+				{
+					navigator.geolocation.getCurrentPosition(getPosition);
+				}
+				else	
+				{
+					document.write("Geolocation not supported");				
+				}
+			}
+
+			function getPosition(position)
+			{
+				document.write("Latitude: "+position.coords.latitude+"<br/>Longitude: "+position.coords.longitude);
+			}
+
+		</script>
+	</body>
+</html>

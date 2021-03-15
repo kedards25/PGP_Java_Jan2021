@@ -1,0 +1,38 @@
+ASP
+PHP
+
+<noscript>
+	Browser do not support scripting	
+	//or some alternate mechanism to javascript
+</noscript>
+
+Web Technologies
+
+	Whenever we type any url in the address bar we are actually 	requesting the server for mentioned url
+	In return,server processes the request and sends response to 	client
+	Communication over web includes request and response cycle
+
+	CGI
+		Common Gateway Interface
+		used to create separate instance of CGI script for 		multiple requests from same client,thereby reducing the 		performance of server
+
+	Servlet
+		The major difference between servlets and CGI was that,	
+		CGI used to create separate instance for each request 		whereas Servlets used threading,allowing server to 		handle concurrent requests at the same time with same 		instance
+
+	JSP
+		Java Server Pages
+		Powerful successor of servlet technology.
+		It was created to eliminate the complexity in servlets.
+		JSP page after compilation,generates sevlet,thereby 			allowing us to implement all the functionalities of 			servlets
+
+	PHP
+		Hypertext PreProcessor
+		open-source server side technology
+		it is written using<?//logic?>
+
+
+	ASP.net
+		It is web development tool based on Microsoft's .NET 		framework
+
+		

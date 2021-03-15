@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Animation Demo</title>
+	</head>
+	<body>
+		<canvas id="cnvs" style="border:1px solid blue" width="400" height="300">
+			your browser does not support canvas
+		</canvas>
+		<script>
+			var c,ctx,x=400,y=300,dx=2,dy=4,Width=400,Height=300;
+			
+			function init()
+			{
+				c=document.getElementById("cnvs");
+				ctx=c.getContext("2d");
+				return setInterval(draw,20);
+			}
+
+			function draw()
+			{
+				clear();
+				circle();
+				if(x>Width||x<0)	
+					dx=-dx;
+				if(y>Height||y<0)	
+					dy=-dy;
+				x+=dx;
+				y+=dy;
+			}
+	
+			function clear()
+			{
+				ctx.clearRect(0,0,Width,Height);
+			}
+
+
+			function circle()
+			{
+				ctx.beginPath();
+				ctx.fillStyle="grey";
+				ctx.arc(x,y,10,0,Math.PI*2,true);
+				ctx.fill();
+				ctx.closePath();
+			}
+		
+						
+			init();
+		</script>
+	</body>
+</html>

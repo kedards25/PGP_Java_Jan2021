@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Geolocation Demo</title>
+	</head>
+	<body onload="getLocation()">
+
+		<script>
+			function getLocation()
+			{
+				if(navigator.geolocation)
+				{
+					navigator.geolocation.getCurrentPosition(getPosition,showError);
+				}
+				else	
+				{
+					document.write("Geolocation not supported");				
+				}
+			}
+
+			function getPosition(position)
+			{
+				document.write("Latitude: "+position.coords.latitude+"<br/>Longitude: "+position.coords.longitude);
+			}
+
+			function showError(error)
+			{
+				switch(error.code)
+				{
+					case error.PERMISSION_DENIED:
+						document.write("User denied to share location details");
+						break;
+
+					case error.POSITION_UNAVAILABLE:
+						document.write("Location not available");
+						break;
+
+					case error.TIMEOUT:
+						document.write("Request timed out");
+						break;
+
+					case error.UNKNOWN_ERROR:
+						document.write("Unknown error occurred");
+						break;					
+				}
+	
+			}
+
+		</script>
+	</body>
+</html>

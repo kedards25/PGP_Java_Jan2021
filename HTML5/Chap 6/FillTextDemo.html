@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Fill Text Demo</title>
+	</head>
+	<body>
+		<canvas id="cnvs" style="border:1px solid blue">
+			your browser does not support canvas
+		</canvas>
+		<script>
+			var c=document.getElementById("cnvs");
+			var ctx=c.getContext("2d");
+
+			ctx.font="36px Georgia";
+			ctx.fillText("Good Morning",10,60,120);
+			
+			ctx.font="36px Verdana";
+			var gradient=ctx.createLinearGradient(0,0,170,0);
+			gradient.addColorStop("0","magenta");
+			gradient.addColorStop("0.5","blue");					gradient.addColorStop("1","red");
+
+			ctx.fillStyle=gradient;
+			ctx.fillText("Good Morning",10,100,120);	
+		</script>
+	</body>
+</html>
