@@ -13,6 +13,10 @@
   <servlet>
   	<servlet-name>DemoServlet</servlet-name>
   	<servlet-class>com.learning.demoservlet.DemoServlet</servlet-class>
+  	 <init-param>
+  		<param-name>demoVal</param-name>
+  		<param-value>Its Monday</param-value>
+  	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>DemoServlet</servlet-name>

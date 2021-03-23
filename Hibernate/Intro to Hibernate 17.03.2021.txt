@@ -1,0 +1,30 @@
+Hibernate is an ORM Tool
+
+Object Relational Mapping(ORM)
+OOPS	RDBMS	  Mapping
+
+OOPS<=====>RDBMS
+
+in Factory pattern we will have a class called as factory class with a factory method
+any method is called as factory method when it returns an object of the class
+
+
+class Demo	//factory class
+{
+	public Demo getObj()	//factory method
+	{
+		Demo d=new Demo();
+		return d;
+	}
+}
+
+class Products
+{
+	int productId;
+}
+
+create table products
+{
+	prodId int primary key identity(100,1)
+}
+

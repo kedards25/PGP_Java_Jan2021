@@ -1,0 +1,33 @@
+Conversion from .java to .class
+
+.class file is loaded into web container
+
+instance of the class is created
+
+init() method is invoked =>responsible for initialising object and members of class
+
+service() method is invoked=>responsible for processing the request and generate response
+
+destroy() method is invoked=>responsible for deallocation of memory which is not in use
+
+=============================================================
+
+if we want few values to be initialised as soon as the servlet is loaded/initialised then we can configure those values in servlet mapping of web.xml file using init-param
+
+if we want few values to be initialised as soon as the application is loaded/initialised then we can configure those values outside servlet mapping of web.xml file using context-param
+
+===============================================================
+Servlets and JSP
+
+in servlets, we write html within Java whereas in JSP we write Java within HTML
+
+index.jsp==>errPage.jsp
+
+errorPage="errPage.jsp"
+
+on errPage.jsp	=>isErrorPage="true"
+
+when we want to display java values in jsp we use ExpressionLanguage(EL)
+
+
+

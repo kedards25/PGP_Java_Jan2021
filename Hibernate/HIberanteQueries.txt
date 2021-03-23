@@ -1,0 +1,351 @@
+Set
+	arranges sequential data
+	no duplicate values are allowed 
+
+List
+	arranges data based on index
+	hence duplicate values are allowed
+
+Map
+	arranges data based on key-value pair
+	keys can be arranged in order using Set
+	duplicate values are allowed
+===========================================================================
+package com.learning.demo
+
+@Entity
+//@Table(name="bkDetails")	//create/map table named as bkDetails
+@Table(name="BOOKDETAILS")	//create/map table named as BOOKDETAILS
+//@Table			//create/map table named as BookDetails as same as classname
+class BookDetails
+{
+	@Id	//following property is primary key of the table corresponding to mentioned class
+	@GeneratedValue(strategy=GeneratorType.Identity)
+	int bookId;
+
+	@Column(name="bkName",unique="true")
+	String bookName;
+
+	@Column(name="genre")
+	String bookGenre;
+	String Author;
+	float price;
+
+	public BookDetails()
+
+	public BookDetails(String bookNm,String genre,String Author,String price)
+	{
+		bookName=bookNm;
+		bookGenre=genre;
+		this.Author=Author;
+		this.price=price;
+	}
+
+	//getters and setters for variables
+	public void setBookName(String bookNm)
+	{
+		bookName=bookNm;
+	}
+	
+	public String getBookName()
+	{
+		return bookName;
+	}
+	//getters and Setters for remaining variables
+}
+
+//HQL:Hibernate Query Language
+
+//getting connection object through session
+Session session=HibernateUtil.getSessionFactory().openSession();
+
+//retrieving all the records from given table
+//select * from BookDetails
+List<BookDetails> bookList=
+session.createQuery("from <package_name>.BookDetails").list();
+
+//retrieving specific columns from given table
+List<BookDetails> bookList=
+session.createQuery("select bookName,author,price from <package_name>.BookDetails").list();
+
+//retrieving all the records from given table using aggregate function
+List<BookDetails> bookList=
+session.createQuery("select max(price) from <package_name>.BookDetails").list();
+
+//retrieving all the records from given table using where clause
+List<BookDetails> bookList=
+session.createQuery("from <package_name>.BookDetails where bookGenre='Mystery'").list();
+
+//retrieving all the records from given table using where clause using binding parameters
+//select * from BookDetails where bookGenre=?
+Query bookQuery=
+session.createQuery("from <package_name>.BookDetails where bookGenre=:category");	//placeholder
+String genre="comics";
+query.setString("category",genre);
+
+//iterating through the values using Iterator interface from Collections
+BookDetails bkd=null;
+Query bookQuery=
+session.createQuery("from <package_name>.BookDetails");
+for(Iterator itr=query.iterate();itr.hasNext())
+{
+	bkd=(BookDetails)itr.next();
+	sop(bkd.getBookId());
+}
+
+
+//and adding the object 
+BookDetails bkd=null;	//creating an empty object of BookDetails class
+List<BookDetails> bookList=new ArrayList();	//declaring List named bookList to store objects(rows)
+						//retrieved from database
+
+//select * from BookDetails
+Query query=session.createQuery("from <package_name>.BookDetails");//Querying the database using
+								   //HQL(Hibernate Query Language)
+for(Iterator itr=query.iterate();itr.hasNext())	//iterating through the values using Iterator 						//interface from Collections
+{
+	bkd=(BookDetails)itr.next();		//retrieving each row from the database and converting
+						//it into an object of BookDetails class
+	bookList.add(bkd);			//adding object into List object named bookList 
+						//i.e. arrayList
+}
+return bookList;
+
+//if you do not want to perform such lengthy code given above
+//then we have list() method directly available which will
+//convert rows received from table into objects and
+// return list of objects
+List<BookDetails> bookList=session.createQuery("from <package_name>.BookDetails").list();
+return bookList;
+
+Query bookQuery=
+session.createQuery("from <package_name>.BookDetails");
+//it will skip first 2 records
+bookQuery.setFirstResult(2);	//fetches record from third row
+bookQuery.setFirstResult(n);	//fetches record from n+1 row
+//bookQuery.setFirstResult(100);//fetches record from 101 row
+
+
+Query bookQuery=
+session.createQuery("from <package_name>.BookDetails");
+bookQuery.setMaxResult(2);	//fetches maximum 2 records
+bookQuery.setMaxResult(100)
+=====================================================================
+
+Criteria Queries
+//allows us to provide conditions as same as where clause in SQL
+
+//mentioning  the class on which criteria needs to be applied
+Criteria criteria=session.createCriteria(BookDetails.class);
+List bookList=criteria.list();
+
+//to apply restrictions we have to use Restriction class from
+//org.hibernate.criterion.Restrictions package
+Criteria criteria=session.createCriteria(BookDetails.class);
+//applying restrictions on bookGenre column for comics value
+criteria.add(Restrictions.eq("bookGenre","comics"));
+//converting data received into list
+List bookList=criteria.list();
+
+
+Criteria criteria=session.createCriteria(BookDetails.class);
+criteria.add(Restrictions.gt("price",50.00));	//price greater than 50.00
+List bookList=criteria.list();
+//other criterias
+	//lt=>less than
+	//gt=>greater than
+	//ge=>greater than or equals to
+	//le=>less than or equals to
+	//eq=>equals to
+
+
+Criteria criteria=session.createCriteria(BookDetails.class);
+//implementing like clause using Restrictions class
+criteria.add(Restrictions.like("bookAuthor","%jack%"));
+List bookList=criteria.list();
+
+//variations of like clause
+	//jack%	=> anything starting with word jack
+	//%jack	=> anything ending with word jack
+	//%jack% => anything having word jack at any position
+
+
+Criteria criteria=session.createCriteria(BookDetails.class);
+//converting value to float using wrapper class
+//price between 50 and 100
+criteria.add(Restrictions.between("price",new Float(50.00),new Float(100.00));
+List bookList=criteria.list();
+=========================================================================
+
+to use native SQL we use org.hibernate.SQLQuery interface
+
+SQLQuery bookQuery=
+session.createSQLQuery("select * from BOOKDETAILS");	//BOOKDETAILS  is a table
+bookQuery.addEntity(BookDetails.class);	//mentioning the class to be mapped with
+					//BOOKDETAILS table
+
+
+=========================================================================
+
+Persisting Objects
+
+Demo d=new Demo();
+
+	Persisting means saving data into database
+
+States of an Object
+								evict()
+			save()					close()
+			saveOrUpdate()				clear()
+new object--->Transient<--------------------->Persistent<----------------->Detached	
+				delete()			update()
+								saveOrUpdate()
+
+Object can be available for garbage collection from transient or detached state
+
+Serializable bkObj=session.save(bkd);
+
+Example
+//session has reference of Connection
+Session session=HibernateUtil.getSessionFactory().openSession();
+BookDetails bkd=new BookDetails();	//transient
+bkd.setBookId(112);
+bkd.setBookName("Marvel");
+bkd.setBookAuthor("ABC");
+bkd.setBookGenre("Comics");
+bkd.setPrice(1000);
+//to persist our object in database table
+//we need to use save() method from Hibernate
+//it works as same as "insert into bookDetails values(?,?,?,?,?)" in the background
+Serializable bkdObj=session.save(bkd);	//persistent
+session.close();	//detached
+===============================================
+//updating the object
+Session session=HibernateUtil.getSessionFactory().openSession();
+BookDetails bkdUpdate=(BookDetails)session.load(BookDetails.class,112);	//transient
+bkdUpdate.setPrice(900);
+session.update(bkdUpdate);//persistent
+session.close();	//detached
+
+//deleting the object
+//continued from previous code
+
+BookDetails bkdDelete=(BookDetails)session.load(BookDetails.class,112);
+session.delete(bkdDelete);	//transient
+
+=============================================================================
+Transaction is sequence of statements/instructions which are executed as single 
+unit
+
+Following are the properties of Transaction
+Atomicity
+	Transaction would either complete successfully or not at all
+Consistency
+	Makes sure that data is in consistent format either before modification or after modification
+Isolation
+	Concurrent transactions take place independent of each other
+Durabilty
+	Making sure that data is available even in case of system failure by means of backup facility
+
+States of Transaction
+	Active
+		Initial state when the transaction is created and ready to execute
+
+	Partially Committed
+		State where constituent operations are executed but transaction is yet to be committed
+
+	Failed
+		State where one or more constituent operations are failed and transaction cannot proceed further
+
+	Aborted
+		State where transaction is failed and is rolled back
+
+	Committed
+		State where constituent operations are executed successfully and transaction is committed in DB
+
+	Terminated
+		State where transaction is finished due to either failure or successful execution
+
+example
+Transaction tran=null;
+Session session=null;
+try
+{
+//persisting the new object
+session=HibernateUtil.getSessionFactory().openSession();
+tran=session.beginTransaction();
+BookDetails bkd=new BookDetails();	//transient
+bkd.setBookId(112);
+bkd.setBookName("Marvel");
+bkd.setBookAuthor("ABC");
+bkd.setBookGenre("Comics");
+bkd.setPrice(1000);
+serializable bkdObj=session.save(bkd);	//persistent
+tran.commit();
+session.close();	
+//updating and persisting an existing object
+session=HibernateUtil.getSessionFactory().openSession();
+tran=session.beginTransaction();
+BookDetails bkdUpdate=(BookDetails)session.load(BookDetails.class,112);	//persistent
+bkdUpdate.setPrice(900);
+tran.commit();
+}
+catch(Exception e)
+{
+	if(tran!=null)
+	{
+		tran.rollback();
+	}
+	SOP(e.getMessage());
+}
+finally
+{
+	//checking if session has received reference of Connection object
+	if(session!=null)
+	{
+	
+		session.close();	//detached
+	}
+}
+
+
+Concurrency
+
+Concurrency Issues
+	Dirty Read
+			Reading the uncommitted data
+
+	Lost updates
+			loss of data operated by previous transaction
+
+	Nonrepeatable	data being read between two successful transactions
+	read
+
+	phantom read
+			data being modified by other transaction between 			successive reads by first transaction
+
+Isolation levels to avoid concurrency issues
+	Read Uncommitted	valid value=1
+			Allowing transaction to read uncommitted data
+			All issues can occur here
+	Read Committed		valid value=2
+			Allows to read data that is committed,overcomes the 				problem of dirty read but all other issues will still 				be there
+			Default Isolation level of SQL
+	Repeatable Read		valid value=4
+			No other transaction can read the data that is being 				modified by one transaction
+
+	Serialized		valid value=8
+			No other transaction can read,modify,insert or delete 				the data that is being modified by one transaction
+
+in hibernate.cfg.xml
+	<property name="hibernate.connection.isolation">8<property>
+			
+
+
+
+
+
+
+
+
+	
