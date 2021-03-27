@@ -1,0 +1,61 @@
+class DemoP1{}
+class DemoP2{}
+
+class DemoC extends DemoP1,DemoP2
+
+Multiple
+A,B=>C
+
+Multi-Level
+A=>B=>C
+
+Parent class=>child class		-->Downward Casting
+
+Child class=>Parent Class		-->Upward casting
+
+class DemoP
+{
+	void show(double num)
+	{
+		System.out.println("Hello From parent");
+	}
+}
+
+public class DynamicPolymorphismDemo extends DemoP{
+
+	
+	void show(double val)
+	{
+		System.out.println("Hello From child");
+	}
+	
+	public static void main(String[] args) {
+		DemoP dp=new DemoP();
+		//dp.show();
+
+		DynamicPolymorphismDemo demo=new DynamicPolymorphismDemo();
+		//demo.show();
+		
+		
+		//Object of child being assigned to parent
+		//as same as this=>
+		DemoP d=new DynamicPolymorphismDemo();
+		//DemoP d=demo;
+		d.show(5.7);
+
+		DemoP demoP=new DemoP();
+		DynamicPolymorphismDemo dp2=demoP;	//not valid
+		//We have to cast object of parent into type of child class
+		DynamicPolymorphismDemo dp2=(DynamicPolymorphismDemo)demoP;	//valid
+		//above line compiles successfully but throws an exception at runtime
+		//because above line is valid from syntax point of view but
+		//not attainable from execution point of view
+		
+float a=5.5;
+int b=7;
+a=b;		a=7.0	
+b=(int)a;		b=5
+		
+	}
+
+}

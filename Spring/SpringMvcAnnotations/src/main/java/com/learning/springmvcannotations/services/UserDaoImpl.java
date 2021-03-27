@@ -31,8 +31,13 @@ public class UserDaoImpl implements IUserDao {
 	}
 
 	public UserModel getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		UserModel model=(UserModel)factory
+				.openSession()
+				.createQuery(" from com.learning.springmvcannotations.models.UserModel"
+						+ " where userid="+id)
+				.list()
+				.get(0);
+		return model;
 	}
 
 	public void addUser(UserModel model) {
@@ -41,13 +46,13 @@ public class UserDaoImpl implements IUserDao {
 	}
 
 	public void editUser(UserModel model) {
-		// TODO Auto-generated method stub
+		factory.getCurrentSession().saveOrUpdate(model);
 
 	}
 
 	public void deleteUser(int id) {
-		// TODO Auto-generated method stub
-
+		model=getUserById(id);
+		factory.getCurrentSession().delete(model);
 	}
 
 }

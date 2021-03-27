@@ -49,8 +49,8 @@ tr:nth-child(even) {
     <td><c:out value="${md.getUserName() }" /></td>
     <td><c:out value="${md.getUserAddr() }" /></td>
     <td><c:out value="${md.getUserNumber() }" /></td>
-    <td><a href="edit-user">Edit Details</a>
-    <a href="delete-user">Delete</a></td>
+    <td><a href="edit-user/${md.getUserId() }">Edit Details</a>
+    <a href="delete-user/${md.getUserId() }">Delete</a></td>
   </tr>
   </c:forEach>
 </table>
