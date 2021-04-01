@@ -1,0 +1,22 @@
+//Methods in interrface are public and abstract by default
+//we cannot create object of interface
+//as it contains abstract method with incomplete definition
+interface DemoP1
+{
+	//interfaces cannot have variables
+	//interfaces can have constants
+	int NUM=5;
+	void play();	//abstract method->only method declaration and not the definition
+}
+
+interface DemoP2
+{
+
+}
+
+OuterClass MyOuter=new OuterClass();	
+//MyOuter=new OuterClass();
+OuterClass.InnerClass myInner=MyOuter.InnerClass();
+
+				//new OuterClass() =>is referring to object of OuterClass
+OuterClass.InnerClass myIneer=new OuterClass().InnerClass();
