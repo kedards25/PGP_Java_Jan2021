@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+    http://www.springframework.org/schema/aop   
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+	<bean id="primaryBean"
+		class="com.learning.aopconfigdemo.PrimaryClass" />
+
+	<bean id="secondaryBean"
+		class="com.learning.aopconfigdemo.SecondaryClass" />
+
+	<aop:config>
+
+		<aop:pointcut
+			expression="execution(* com.learning.aopconfigdemo.PrimaryClass.*(..))"
+			id="primaryPointcut" />
+
+
+ 		<aop:pointcut
+			expression="execution(* com.learning.aopconfigdemo.PrimaryClass.show(..))"
+			id="showPointCut" /> 
+		
+		
+		<aop:aspect ref="secondaryBean" id="primaryAspect">
+		<!-- following code states to invoke method called as invokeBefore from  id=secondaryBean
+		which is defined on line 13 before calling any method from primaryClass=>this is 
+		configured in primaryPointcut on line 19 and same is being referred in line 32 -->
+			<aop:before method="invokeBefore"
+				pointcut-ref="primaryPointcut" />
+
+		<!-- following code states to invoke method called as invokeAfter from  id=secondaryBean
+		which is defined on line 13 after calling any method from primaryClass=>this is 
+		configured in primaryPointcut on line 19 and same is being referred in line 32 -->
+			<aop:after method="invokeAfter"
+				pointcut-ref="primaryPointcut" />
+		</aop:aspect>
+
+
+
+
+
+		<aop:aspect ref="secondaryBean" id="showMethodAspect">
+			<aop:before method="invokeBeforeShow"
+				pointcut-ref="showPointCut" />
+
+			<aop:after method="invokeAfterShow"
+				pointcut-ref="showPointCut" /> 
+		</aop:aspect>
+
+	</aop:config>
+
+</beans>
